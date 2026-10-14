@@ -23,3 +23,7 @@ def create_book(book: BookCreate):
     books_db.append(new_book)
     current_id += 1
     return new_book
+
+@app.get("/books/{book_id}")
+def get_book(book_id: int):
+    return books_db[book_id - 1]
